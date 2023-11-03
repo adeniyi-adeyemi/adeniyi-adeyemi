@@ -1,0 +1,27 @@
+name: Add bugs to bugs project
+
+on:
+  issues:
+    types:
+      - labeled
+
+jobs:
+  add-to-project:
+    name: Add issue to project
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@main
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          project-url: https://github.com/users/adeniyi-adeyemi/projects/1
+          labeled: "feature request"
+
+  add-to-bugboard:
+    name: Add issue to bug board
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/add-to-project@main
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          project-url: https://github.com/users/adeniyi-adeyemi/projects/2
+          labeled: "bug"
